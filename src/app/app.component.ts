@@ -1,16 +1,17 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-
-import { UserService } from "./core";
+import { Component, Input } from '@angular/core';
+import {Colors} from "./Colors";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent implements OnInit {
-  constructor(private userService: UserService) {}
+export class AppComponent {
+  @Input()
+  color: string
+  // constructor(private userService: UserService) {}
 
-  ngOnInit() {
-    this.userService.populate();
-  }
+  @Input()
+  value: Number
+  protected readonly Colors = Colors;
+  protected readonly Math = Math;
 }
